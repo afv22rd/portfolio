@@ -1,9 +1,43 @@
+:root {
+    --bs-body-bg: #fff; /* Light mode background color */
+    --bs-link-color: #002147;
+}
 
+[data-bs-theme="dark"] {
+    --bs-body-bg: #002147; /* Dark mode background color */
+    --bs-link-color: #fff;
+}
 
-#themeSwitch {
-    padding-left: 4rem;
+/* Apply the background color */
+body {
+    background-color: var(--bs-body-bg);
+}
+
+.input-group-text {
+    background-color: var(--bs-body-bg) !important; /* Match the body's background color */
+  }  
+
+.main-hero {
+    background-image: url('./images/blob-bg.svg');
+    background-size: cover;
+}
+
+.main-hero.dark {
+    background-image: url('./images/blob-bg-dark.svg');
+}
+
+.main-hero.dark #hero-h1 {
+    color: #fff;
 }
 
 .form-check-input {
     margin-right: 10px;
+}
+
+.nav-pills{
+    --bs-nav-pills-link-active-bg: #75B2DD;
+}
+
+.nav-pills .active {
+    background-color: var(--bs-nav-pills-link-active-bg);
 }
