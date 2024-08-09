@@ -35,6 +35,10 @@ body {
 }
 
 .nav-pills{
+    --bs-nav-pills-link-active-bg: #002147;
+}
+
+[data-bs-theme="dark"] .nav-pills{
     --bs-nav-pills-link-active-bg: #75B2DD;
 }
 
