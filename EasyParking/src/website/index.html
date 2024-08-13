@@ -5,42 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EasyParking</title>
     <link rel="icon" href="./images/appIcon.png">
+    <!--Bootstrap CSS and JS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!--CSS file-->
+    <script src="./myscript.js"></script> <!--Javascript file-->
 </head>
+
 <body>
-    <!--Navbar-->
-    <section>
-      <div class="container">
-        <header class="d-lg-flex d-none flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
-          <div class="col-12 col-sm-4 mb-2 mb-md-0">
-            <a class="navbar-brand" href="/"><img src="./images/weblogo_lightmode.svg" width="150px" id="logo-h"></a>
-          </div>
-    
-          <ul class="col-12 col-sm-4 justify-content-sm-center nav nav-pills">
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Other
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="https://github.com/Obarrie/CSC305Project" target="_blank" rel="noopener noreferrer">GitHub Repo <img src="./images/newtab-light.svg" width="20px" class="newtab-icon"></a></li>
-                <li><a class="dropdown-item" href="https://github.com/Obarrie/CSC305Project/wiki" target="_blank" rel="noopener noreferrer">Wiki <img src="./images/newtab-light.svg" width="20px" class="newtab-icon"></a></li>
-              </ul>
-            </li>
-          </ul>
-    
-          <div class="col-12 col-sm-4 pt-2 pt-sm-0 justify-content-sm-end form-check form-switch d-none d-sm-flex align-items-center" id="themeSwitch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault"><img src="./images/dark-mode-moon.svg" width="20px" id="theme-icon"></label>
-          </div>
-        </header>
-      </div>
-    </section>
-    <!--Folded navbar-->
+  <!--Navbar-->
+  <section>
+    <div class="container">
+      <header class="d-lg-flex d-none flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
+        <div class="col-12 col-sm-4 mb-2 mb-md-0">
+          <a class="navbar-brand" href="/"><img src="./images/weblogo_lightmode.svg" width="150px" id="logo-h"></a>
+        </div>
+  
+        <ul class="col-12 col-sm-4 justify-content-sm-center nav nav-pills">
+          <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Other
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="https://github.com/Obarrie/CSC305Project" target="_blank" rel="noopener noreferrer">GitHub Repo <img src="./images/newtab-light.svg" width="20px" class="newtab-icon"></a></li>
+              <li><a class="dropdown-item" href="https://github.com/Obarrie/CSC305Project/wiki" target="_blank" rel="noopener noreferrer">Wiki <img src="./images/newtab-light.svg" width="20px" class="newtab-icon"></a></li>
+            </ul>
+          </li>
+        </ul>
+  
+        <div class="col-12 col-sm-4 pt-2 pt-sm-0 justify-content-sm-end form-check form-switch d-none d-sm-flex align-items-center" id="themeSwitch">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault"><img src="./images/dark-mode-moon.svg" width="20px" id="theme-icon"></label>
+        </div>
+      </header>
+    </div>
+  </section>
+  <!--Folded navbar-->
+  <section>
     <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex d-lg-none">
       <div class="container-fluid">
         <a class="navbar-brand" href="/"><img src="./images/weblogo_lightmode.svg" width="150px" id="logo-phone"></a>
@@ -78,213 +82,175 @@
         </div>
       </div>
     </nav>
-    <!--Main hero-->
-    <section class="main-hero">
-      <div class="container col-xxl-8 px-4 pt-5">
-        <div class="row flex-lg-row-reverse align-items-center g-5 pt-5">
-          <div class="col-10 col-sm-8 col-lg-6">
-            <img src="./images/homePageSc.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="400" loading="lazy">
-          </div>
-          <div class="col-lg-6 order-first order-lg-last mt-0 mt-sm-4">
-            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">A solution to URI's parking problem. Made for students, by students.</h1>
-            <div class="row">
-              <p class="lead" id="hero-p">EasyParking is currently undergoing internal testing. As such, the app is not yet available for download. Please register to receive updates soon.</p>
-              <div class="col-8">
-                <div class="input-group">
-                  <span class="input-group-text" id="basic-addon1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-at" viewBox="0 0 16 16">
-                      <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2zm3.708 6.208L1 11.105V5.383zM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2z"></path>
-                      <path d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648m-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"></path>
-                    </svg>
-                  </span>
-                  <input type="text" class="form-control" placeholder="Email Address" aria-label="Input group example" aria-describedby="basic-addon1">
-                </div>
+  </section>
+  <!--Main hero-->
+  <section class="main-hero position-relative">
+    <!-- Embedded SVG background -->
+    <svg id="visual" viewBox="0 0 2000 900" class="position-absolute top-0 start-0 w-100 h-100" version="1.1" preserveAspectRatio="xMidYMid slice">
+      <g transform="translate(136.73478951949863 886.6581819313687)">
+        <path class="bottom-1" d="M430.8 -558.8C504.7 -451.5 473.9 -264.8 486.6 -99.6C499.3 65.6 555.3 209.3 516.9 319.6C478.4 429.8 345.4 506.7 193.8 584.4C42.2 662.2 -128 740.8 -293.3 718.5C-458.6 696.3 -619 573.1 -710.5 411.7C-801.9 250.2 -824.4 50.4 -785.1 -132.4C-745.7 -315.3 -644.4 -481.3 -503.3 -576.8C-362.1 -672.2 -181.1 -697.1 -1.3 -695.6C178.5 -694 357 -666.1 430.8 -558.8" fill="#bad9ee"></path>
+      </g>
+      <g transform="translate(-44.98372732137699 910.3464161081381)">
+        <path class="bottom-2" d="M463.1 -531.8C592.3 -443.4 683.9 -290.1 682.8 -143.1C681.6 3.8 587.6 144.4 480.8 228.9C374 313.3 254.3 341.7 127.3 417.3C0.2 492.9 -134.3 615.7 -267.9 618.2C-401.5 620.7 -534.2 502.9 -576.4 364.4C-618.5 226 -570.2 67 -538.1 -91.3C-505.9 -249.5 -489.8 -407.1 -402.8 -502.9C-315.8 -598.7 -157.9 -632.9 4.5 -638.2C166.9 -643.6 333.8 -620.2 463.1 -531.8" fill="#9ec9e7"></path>
+      </g>
+      <g transform="translate(108.96517403508233 828.4324288327247)">
+        <path class="bottom-3" d="M315.1 -384C375.7 -324.7 369.5 -194.4 354.6 -90.4C339.7 13.5 316 91.1 287.9 190.9C259.7 290.7 227.2 412.7 140 490.1C52.9 567.6 -88.8 600.5 -196.2 554.6C-303.5 508.7 -376.5 384.1 -448.9 259C-521.2 133.9 -593 8.4 -581.3 -110.2C-569.6 -228.8 -474.4 -340.4 -363.6 -390.8C-252.8 -441.3 -126.4 -430.7 0.4 -431.2C127.3 -431.7 254.5 -443.4 315.1 -384" fill="#75b2dd"></path>
+      </g>
+
+      <g transform="translate(1893.7081738766096 -35.825887196312124)">
+        <path class="top-1" d="M522.6 -548.8C669.3 -499.6 774.9 -327.4 810.8 -140.5C846.8 46.5 813.1 248.3 706.3 383.9C599.5 519.6 419.6 589.1 251.3 619.7C83 650.3 -73.8 641.8 -196.4 579.8C-319.1 517.7 -407.7 402.1 -483.5 276.4C-559.3 150.7 -622.4 14.9 -610.7 -117.5C-599 -249.9 -512.6 -378.9 -398.3 -433.7C-284.1 -488.6 -142.1 -469.3 22.9 -496.6C187.9 -523.9 375.8 -597.9 522.6 -548.8" fill="#bad9ee"></path>
+      </g>
+      <g transform="translate(2046.0897540205744 -127.6654135316771)">
+        <path class="top-2" d="M343.3 -374.6C442 -326.4 516.9 -215.4 520 -105.4C523 4.6 454.2 113.5 400.3 253.9C346.4 394.2 307.5 565.9 206.2 630.7C104.9 695.4 -58.7 653.1 -217.1 595.8C-375.5 538.5 -528.8 466.1 -585.3 347.8C-641.8 229.5 -601.6 65.3 -537.8 -59.9C-474.1 -185 -386.8 -271 -293.2 -320.1C-199.7 -369.2 -99.8 -381.5 11.2 -394.9C122.3 -408.3 244.7 -422.9 343.3 -374.6" fill="#9ec9e7"></path>
+      </g>
+      <g transform="translate(2019.675145151933 -15.054475044180236)">
+        <path class="top-3" d="M373.6 -402.4C471.3 -363.3 528.6 -233.3 530.4 -110.3C532.1 12.8 478.2 128.9 413.3 236C348.3 343.1 272.3 441.3 181.2 456.5C90.1 471.7 -16.2 404.1 -101.2 344.3C-186.1 284.6 -249.8 232.8 -340.2 157.2C-430.6 81.6 -547.7 -17.8 -566.9 -133.1C-586.1 -248.5 -507.4 -379.7 -396.6 -416.4C-285.8 -453.1 -142.9 -395.3 -2.5 -392.4C138 -389.5 276 -441.4 373.6 -402.4" fill="#75b2dd"></path>
+      </g>
+    </svg>
+
+    <!-- Content -->
+    <div class="container col-xxl-8 px-4 pt-5 position-relative">
+      <div class="row flex-lg-row-reverse align-items-center g-5 pt-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+          <img src="./images/homePageSc.png" class="d-block mx-lg-auto img-fluid" alt="EasyParking App Layout" width="400" loading="lazy">
+        </div>
+        <div class="col-lg-6 order-first order-lg-last mt-0 mt-sm-4">
+          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">A solution to URI's parking problem. Made for students, by students.</h1>
+          <div class="row">
+            <p class="lead" id="hero-p">EasyParking is currently undergoing internal testing. As such, the app is not yet available for download. Please register to receive updates soon.</p>
+            <div class="col-8">
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-at" viewBox="0 0 16 16">
+                    <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2zm3.708 6.208L1 11.105V5.383zM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2z"></path>
+                    <path d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648m-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"></path>
+                  </svg>
+                </span>
+                <input type="text" class="form-control" placeholder="Email Address" aria-label="Input group example" aria-describedby="basic-addon1">
               </div>
-              <button type="submit" class="col-3 btn btn-primary">Submit</button>
             </div>
+            <button type="submit" class="col-3 btn btn-primary">Submit</button>
           </div>
         </div>
       </div>
-    </section>
-    <!--Features-->
-    <section>
-      <div id="icon-grid" class="container px-4 pt-4">
-        <h2 class="pb-2 border-bottom">Features</h2>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-sm-5 pt-5 pb-0">
-          <div class="col d-flex align-items-start">
-            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon">
-              <img src="./images/occupancy-light.svg" width="35px">
-            </div>
-            <div>
-              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Live Occupancy</h3>
-              <p>Get real-time updates on the availability of parking spaces across various lots. Easily find out which locations are busy or open to park.</p>
-            </div>
+    </div>
+  </section>
+
+  <!--Features-->
+  <section>
+    <div id="icon-grid" class="container px-4 pt-4">
+      <h2 class="pb-2 border-bottom">Features</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-sm-5 pt-5 pb-0">
+        <div class="col d-flex align-items-start">
+          <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon1">
+            <img src="./images/occupancy-light.svg" width="35px">
           </div>
-          <div class="col d-flex align-items-start">
-            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon">
-              <img src="./images/feedback-light.svg" width="35px">
-            </div>
-            <div>
-              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Instant Feedback</h3>
-              <p>Share your observations about parking lot availability with the community in real time, helping others make informed decisions.</p>
-            </div>
+          <div>
+            <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Live Occupancy</h3>
+            <p>Get real-time updates on the availability of parking spaces across various lots. Easily find out which locations are busy or open to park.</p>
           </div>
-          <div class="col d-flex align-items-start">
-            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon">
-              <img src="./images/parkingservices-light.svg" width="35px">
-            </div>
-            <div>
-              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Parking Services</h3>
-              <p>Access URI's parking services directly through the app. Pay tickets, buy parking passes, and manage all related services with ease.</p>
-            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon2">
+            <img src="./images/feedback-light.svg" width="35px">
           </div>
-          <div class="col d-flex align-items-start">
-            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon">
-              <img src="./images/savespot-light.svg" width="35px">
-            </div>            
-            <div>
-              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Spot Saver</h3>
-              <p>Save the exact location of your parked car for future reference. Never forget where you parked again, even in the busiest lots.</p>
-            </div>
+          <div>
+            <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Instant Feedback</h3>
+            <p>Share your observations about parking lot availability with the community in real time, helping others make informed decisions.</p>
           </div>
-          <div class="col d-flex align-items-start">
-            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon">
-              <img src="./images/leaving-light.svg" width="35px">
-            </div>            
-            <div>
-              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Leaving Notification</h3>
-              <p>Notify other users when you're leaving a parking spot. This feature helps fellow drivers find available spaces quickly.</p>
-            </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon3">
+            <img src="./images/parkingservices-light.svg" width="35px">
           </div>
-          <div class="col d-flex align-items-start">
-            <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon">
-              <img src="./images/parkinghistory-light.svg" width="35px">
-            </div>            
-            <div>
-              <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Parking History</h3>
-              <p>Review your parking history, including locations, arrival times, and departure times. Easily track where you’ve parked and for how long.</p>
-            </div>
+          <div>
+            <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Parking Services</h3>
+            <p>Access URI's parking services directly through the app. Pay tickets, buy parking passes, and manage all related services with ease.</p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon4">
+            <img src="./images/savespot-light.svg" width="35px">
+          </div>            
+          <div>
+            <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Spot Saver</h3>
+            <p>Save the exact location of your parked car for future reference. Never forget where you parked again, even in the busiest lots.</p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon5">
+            <img src="./images/leaving-light.svg" width="35px">
+          </div>            
+          <div>
+            <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Leaving Notification</h3>
+            <p>Notify other users when you're leaving a parking spot. This feature helps fellow drivers find available spaces quickly.</p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon6">
+            <img src="./images/parkinghistory-light.svg" width="35px">
+          </div>            
+          <div>
+            <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Parking History</h3>
+            <p>Review your parking history, including locations, arrival times, and departure times. Easily track where you’ve parked and for how long.</p>
           </div>
         </div>
       </div>
-    </section>
-    <!--Footer-->
-    <section>
-        <div class="container">
-            <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-                <div class="col mb-3 px-0 d-flex flex-column align-items-start order-1 order-sm-0">
-                    <div class="d-flex justify-content-center align-items-center mb-3">
-                        <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
-                            <img src="https://github.com/afv22rd/portfolio/blob/main/EasyParking/src/website/images/easyParkingIcon2.png?raw=true" alt="EasyParking logo" width="100" id="logo-f">
-                            <p class="text-body-secondary mb-0">© 2024</p>
-                        </a>
-                    </div>
-                </div> 
+    </div>
+  </section>
+  <!--Footer-->
+  <section>
+    <div class="container">
+      <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+        <div class="col mb-3 px-0 d-flex flex-column align-items-start order-1 order-sm-0">
+          <div class="d-flex justify-content-center align-items-center mb-3">
+            <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+              <img src="https://github.com/afv22rd/portfolio/blob/main/EasyParking/src/website/images/easyParkingIcon2.png?raw=true" alt="EasyParking logo" width="100" id="logo-f">
+              <p class="text-body-secondary mb-0">© 2024</p>
+            </a>
+          </div>
+        </div> 
 
-                <div class="d-flex d-none d-md-flex" id="vertical-rule" style="height: 200px; width: 30px;">
-                    <div class="vr"></div>
-                </div>
-
-                <div class="col mb-3">
-                    <h5>Section</h5>
-                    <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                    </ul>
-                </div>
-            
-                <div class="col mb-3">
-                    <h5>Section</h5>
-                    <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                    </ul>
-                </div>
-            
-                <div class="col mb-3">
-                    <h5>Section</h5>
-                    <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                    </ul>
-                </div>
-            </footer>
+        <div class="d-flex d-none d-md-flex" id="vertical-rule" style="height: 200px; width: 30px;">
+          <div class="vr"></div>
         </div>
-    </section>
-        
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const headerLogo = document.getElementById('logo-h');
-        const footerLogo = document.getElementById('logo-f');
-        const logophone = document.getElementById('logo-phone');
-        const themeSwitch = document.getElementById('flexSwitchCheckDefault');
-        const themeSwitchF = document.getElementById('flexSwitchCheckDefault-f');
-        const mainHero = document.querySelector('.main-hero');
-        const themeIcon = document.getElementById('theme-icon');
-        const themeIconF = document.getElementById('theme-icon-f');
-        const newtabIcons = document.querySelectorAll('.newtab-icon');
-        
-        // Check local storage for saved theme
-        const savedTheme = localStorage.getItem('theme');
-        const theme = savedTheme ? savedTheme : document.documentElement.getAttribute('data-bs-theme');
-        
-        // Apply the saved theme
-        document.documentElement.setAttribute('data-bs-theme', theme);
-        themeSwitch.checked = theme === 'dark';
-        themeSwitchF.checked = theme === 'dark';
-  
-        function updateLogos(theme){
-          if (theme === 'dark') {
-            headerLogo.src = './images/weblogo_darkmode.svg';
-            logophone.src = './images/weblogo_darkmode.svg';
-            mainHero.classList.add('dark');
-            themeIcon.src = './images/light-mode-sun.svg';
-            themeIconF.src = './images/light-mode-sun.svg';
 
-            // Update all newtab icons
-            newtabIcons.forEach(icon => {
-              icon.src = './images/newtab.svg';
-            });
+        <div class="col mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+          </ul>
+        </div>
+    
+        <div class="col mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+          </ul>
+        </div>
+    
+        <div class="col mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </section>
 
-          } else {
-            headerLogo.src = './images/weblogo_lightmode.svg';
-            logophone.src = './images/weblogo_lightmode.svg';
-            mainHero.classList.remove('dark');
-            themeIcon.src = './images/dark-mode-moon.svg';
-            themeIconF.src = './images/dark-mode-moon.svg';
-
-            // Update all newtab icons
-            newtabIcons.forEach(icon => {
-              icon.src = './images/newtab-light.svg';
-            });
-          }
-        }
-        
-        function updateTheme(){
-          const currentTheme = document.documentElement.getAttribute('data-bs-theme');
-          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-          document.documentElement.setAttribute('data-bs-theme', newTheme);
-          localStorage.setItem('theme', newTheme);
-          updateLogos(newTheme);
-        }
-  
-        themeSwitch.addEventListener('change', updateTheme);
-        themeSwitchF.addEventListener('change', updateTheme);
-        updateLogos(theme);
-      });
-
-      const hoverIcon = document.getElementById('hoverIcon');
-
-    </script>
 </body>
 </html>
 

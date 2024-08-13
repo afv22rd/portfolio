@@ -1,3 +1,11 @@
 Navy Blue: 002147
 Yellow/Gold: D0A627 | Alternate: C79316
 Keaney Blue: 75B2DD
+
+Green: 14E829
+Orange: E89314
+Red: E82914
+
+Blobs colors:
+Light: #bad9ee, #9ec9e7, #75b2dd
+Dark: #667a91, 334d6c, #002147

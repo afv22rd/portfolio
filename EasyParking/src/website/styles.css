@@ -20,16 +20,7 @@ body {
     background-color: var(--bs-body-bg) !important; /* Match the body's background color */
   }  
 
-.main-hero {
-    background-image: url('./images/blob-bg.svg');
-    background-size: cover;
-}
-
-.main-hero.dark {
-    background-image: url('./images/blob-bg-dark.svg');
-}
-
-.main-hero.dark #hero-p {
+.main-hero.dark #hero-paragraph {
     color: #fff;
 }
 
@@ -85,24 +76,90 @@ body {
     animation: gradient-animation 2s ease infinite;
 }
   
-  @keyframes gradient-animation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
   }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 .dropdown-menu {
-    --bs-dropdown-link-active-bg: #002147;
-    --bs-dropdown-link-active-color: #dee2e6;
+    --bs-dropdown-link-active-bg: #9ec9e7;
+    --bs-dropdown-link-active-color: #22272b;
 }
 
 [data-bs-theme="dark"] .dropdown-menu {
     --bs-dropdown-link-active-bg: #75B2DD;
     --bs-dropdown-link-active-color: #dee2e6;
+}
+
+@media (max-width: 800px) {
+  #hoverIcon1 {
+    animation-delay: 0s;
+  }
+  
+  #hoverIcon2 {
+      animation-delay: 0.2s;
+  }
+  
+  #hoverIcon3 {
+      animation-delay: 0.4s;
+  }
+  
+  #hoverIcon4 {
+      animation-delay: 0.6s;
+  }
+  
+  #hoverIcon5 {
+      animation-delay: 0.8s;
+  }
+  
+  #hoverIcon6 {
+      animation-delay: 1s;
+  }
+
+  .gradient-background {
+    animation: gradient-animation 2s ease infinite;
+  } 
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.top-1 {
+  animation: rotate 35s linear infinite;
+  transform-origin: 13px 25px;
+}
+
+.top-2 {
+  animation: rotate 30s linear infinite;
+  transform-origin: 13px 25px;
+}
+
+.top-3 {
+  animation: rotate 35s linear infinite;
+  transform-origin: 13px 25px;
+}
+
+.bottom-1 {
+  animation: rotate 30s linear infinite;
+  transform-origin: 84px 93px;
+}
+
+.bottom-2 {
+  animation: rotate 35s linear infinite;
+  transform-origin: 84px 93px;
+}
+
+.bottom-3 {
+  animation: rotate 35s linear infinite;
+  transform-origin: 84px 93px;
 }
