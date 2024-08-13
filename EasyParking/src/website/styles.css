@@ -163,3 +163,17 @@ body {
   animation: rotate 35s linear infinite;
   transform-origin: 84px 93px;
 }
+
+.invalid-feedback {
+  display: block;
+}
+
+.valid-feedback {
+  display: block;
+}
+
+#emailMessage {
+  margin-top: 5px;
+  height: 25px; /* Fixed height */
+  overflow: hidden; /* Prevent overflow */
+}
