@@ -1,6 +1,16 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
 import { getFirestore, collection, setDoc, getDocs, doc, addDoc, Timestamp, limit, orderBy, query, where} from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';  
 
+const firebaseConfig = {
+    apiKey: "AIzaSyBOHzNRd0cwr37CNrJLWYjeXsuTpLSc-vw",
+    authDomain: "easyparking-d43a9.firebaseapp.com",
+    projectId: "easyparking-d43a9",
+    storageBucket: "easyparking-d43a9.appspot.com",
+    messagingSenderId: "843270292758",
+    appId: "1:843270292758:web:7f633217719971f42bbc37",
+    measurementId: "G-RZ7SGB34XS"
+  };
+
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
