@@ -164,11 +164,7 @@ body {
   transform-origin: 84px 93px;
 }
 
-.invalid-feedback {
-  display: block;
-}
-
-.valid-feedback {
+.invalid-feedback, .valid-feedback {
   display: block;
 }
 
@@ -176,4 +172,8 @@ body {
   margin-top: 5px;
   height: 25px; /* Fixed height */
   overflow: hidden; /* Prevent overflow */
+}
+
+body, html {
+  overflow-x: hidden;
 }
