@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       const emailInputGroup = document.getElementById('emailInput');
       const emailMessageDiv = document.getElementById('emailMessage');
       const email = emailInput.value;
+      const loadingIcon = document.getElementById('loading-icon');
     
       if (!email.includes('@') || !email.includes('.')) {
           emailInputGroup.classList.add('is-invalid');
@@ -124,6 +125,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       }
     
       try {
+          loadingIcon.style.display = 'block';
           const response = await fetch('https://us-central1-easyparking-d43a9.cloudfunctions.net/storeEmail', {
               method: 'POST',
               headers: {
@@ -160,6 +162,7 @@ document.addEventListener('DOMContentLoaded', async function() {
               emailInputGroup.classList.remove('is-valid');
               emailMessageDiv.textContent = '';
               emailMessageDiv.classList.remove('valid-feedback');
+              loadingIcon.style.display = 'none';
           }, 4000);
       } catch (error) {
           console.error('Error submitting email: ', error);
