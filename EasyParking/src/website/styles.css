@@ -16,6 +16,22 @@ body {
     background-color: var(--bs-body-bg);
 }
 
+header {
+    background-color: var(--bs-body-bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar-brand * {
+  transition: transform 0.2s; 
+}
+.navbar-brand:hover * {
+  transform: scale(1.02);
+}
+
 .input-group-text {
     background-color: var(--bs-body-bg) !important; /* Match the body's background color */
   }  
@@ -65,6 +81,7 @@ body {
 .gradient-background {
     background: linear-gradient(100deg, #002147, #75B2DD);
     background-size: 150% 150%;
+    transition: transform .2s;
   }
 
 [data-bs-theme="dark"] .gradient-background {
@@ -73,7 +90,7 @@ body {
 }
 
 .gradient-background:hover {
-    animation: gradient-animation 2s ease infinite;
+    transform: scale(1.02);
 }
   
 @keyframes gradient-animation {
@@ -98,35 +115,33 @@ body {
     --bs-dropdown-link-active-color: #dee2e6;
 }
 
-@media (max-width: 800px) {
-  #hoverIcon1 {
-    animation-delay: 0s;
-  }
-  
-  #hoverIcon2 {
-      animation-delay: 0.2s;
-  }
-  
-  #hoverIcon3 {
-      animation-delay: 0.4s;
-  }
-  
-  #hoverIcon4 {
-      animation-delay: 0.6s;
-  }
-  
-  #hoverIcon5 {
-      animation-delay: 0.8s;
-  }
-  
-  #hoverIcon6 {
-      animation-delay: 1s;
-  }
-
-  .gradient-background {
-    animation: gradient-animation 2s ease infinite;
-  } 
+#hoverIcon1 {
+  animation-delay: 0s;
 }
+
+#hoverIcon2 {
+    animation-delay: 0.2s;
+}
+
+#hoverIcon3 {
+    animation-delay: 0.4s;
+}
+
+#hoverIcon4 {
+    animation-delay: 0.6s;
+}
+
+#hoverIcon5 {
+    animation-delay: 0.8s;
+}
+
+#hoverIcon6 {
+    animation-delay: 1s;
+}
+
+.gradient-background {
+  animation: gradient-animation 2s ease infinite;
+} 
 
 @keyframes rotate {
   100% {
@@ -176,4 +191,58 @@ body {
 
 body, html {
   overflow-x: hidden;
+}
+
+@keyframes spinner {
+  0% { transform: translate(-50%,-50%) rotate(0deg); }
+  100% { transform: translate(-50%,-50%) rotate(360deg); }
+}
+.spinner div {
+  position: absolute;
+  width: 18.83335px;
+  height: 18.83335px;
+  border: 4px solid #75b2dd;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
+  top: 18.83335px;
+  left: 18.83335px;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.loadingio-spinner {
+  width: 37.6667px;
+  height: 37.6667px;
+  overflow: hidden;
+  background: none;
+  position: absolute;
+  right: 0px; /* Adjust this value to control horizontal spacing */
+  border-radius: 25%;
+  display: none;
+}
+.spinner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+
+[data-bs-theme="dark"] .spinner div {
+  border: 4px solid #667a91;
+  background-color: #002147;
+  border-top-color: transparent;
+}
+
+.feature {
+  opacity: 0;
+  transform: translateY(-20%);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.feature.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
