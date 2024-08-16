@@ -18,8 +18,8 @@
   <section>
     <div class="container">
       <header class="d-lg-flex d-none flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
-        <div class="col-12 col-sm-4 mb-2 mb-md-0">
-          <a class="navbar-brand" href="/"><img src="./images/weblogo_lightmode.svg" width="150px" id="logo-h"></a>
+        <div class="col-12 col-sm-4 mb-5 mb-md-0">
+          <a class="navbar-brand ms-5" href="/"><img src="./images/weblogo_lightmode.svg" width="150px" id="logo-h"></a>
         </div>
   
         <ul class="col-12 col-sm-4 justify-content-sm-center nav nav-pills">
@@ -39,7 +39,7 @@
   
         <div class="col-12 col-sm-4 pt-2 pt-sm-0 justify-content-sm-end form-check form-switch d-none d-sm-flex align-items-center" id="themeSwitch">
           <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          <label class="form-check-label" for="flexSwitchCheckDefault"><img src="./images/dark-mode-moon.svg" width="20px" id="theme-icon"></label>
+          <label class="form-check-label me-5" for="flexSwitchCheckDefault"><img src="./images/dark-mode-moon.svg" width="20px" id="theme-icon"></label>
         </div>
       </header>
     </div>
@@ -112,8 +112,8 @@
     <!-- Content -->
     <div class="container col-xxl-8 px-4 pt-5 position-relative">
       <div class="row flex-lg-row-reverse align-items-center g-5 pt-5">
-        <div class="col-10 col-sm-8 col-lg-6">
-          <img src="./images/homePageSc.png" class="d-block mx-lg-auto img-fluid" alt="EasyParking App Layout" width="400" loading="lazy">
+        <div class="col-10 col-sm-8 col-lg-6 mt-4">
+          <img src="./images/homePageSc.png" class="d-block mx-lg-0 img-fluid mt-lg-5 pt-lg-5" alt="EasyParking App Layout" width="400" id="homeLayout" loading="lazy">
         </div>
         <div class="col-lg-6 order-first order-lg-last mt-0 mt-sm-4">
           <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">A solution to URI's parking problem. Made for students, by students.</h1>
@@ -147,11 +147,11 @@
   </section>
 
   <!--Features-->
-  <section>
+  <section id="features-section">
     <div id="icon-grid" class="container px-4 pt-4">
-      <h2 class="pb-2 border-bottom">Features</h2>
+      <h2 class="pb-2 border-bottom" id="feature-heading">Features</h2>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-sm-5 pt-5 pb-0">
-        <div class="col d-flex align-items-start place">
+        <div class="feature col d-flex align-items-start" style="--order: 1">
           <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon1">
             <img src="./images/occupancy-light.svg" width="35px">
           </div>
@@ -160,7 +160,7 @@
             <p>Get real-time updates on the availability of parking spaces across various lots. Easily find out which locations are busy or open to park.</p>
           </div>
         </div>
-        <div class="col d-flex align-items-start">
+        <div class="feature col d-flex align-items-start" style="--order: 2">
           <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon2">
             <img src="./images/feedback-light.svg" width="35px">
           </div>
@@ -169,7 +169,7 @@
             <p>Share your observations about parking lot availability with the community in real time, helping others make informed decisions.</p>
           </div>
         </div>
-        <div class="col d-flex align-items-start">
+        <div class="feature col d-flex align-items-start" style="--order: 3">
           <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon3">
             <img src="./images/parkingservices-light.svg" width="35px">
           </div>
@@ -178,7 +178,7 @@
             <p>Access URI's parking services directly through the app. Pay tickets, buy parking passes, and manage all related services with ease.</p>
           </div>
         </div>
-        <div class="col d-flex align-items-start">
+        <div class="feature col d-flex align-items-start" style="--order: 4">
           <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon4">
             <img src="./images/savespot-light.svg" width="35px">
           </div>            
@@ -187,7 +187,7 @@
             <p>Save the exact location of your parked car for future reference. Never forget where you parked again, even in the busiest lots.</p>
           </div>
         </div>
-        <div class="col d-flex align-items-start">
+        <div class="feature col d-flex align-items-start" style="--order: 5">
           <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon5">
             <img src="./images/leaving-light.svg" width="35px">
           </div>            
@@ -196,7 +196,7 @@
             <p>Notify other users when you're leaving a parking spot. This feature helps fellow drivers find available spaces quickly.</p>
           </div>
         </div>
-        <div class="col d-flex align-items-start">
+        <div class="feature col d-flex align-items-start" style="--order: 6">
           <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 gradient-background" id="hoverIcon6">
             <img src="./images/parkinghistory-light.svg" width="35px">
           </div>            
