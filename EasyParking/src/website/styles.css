@@ -120,27 +120,27 @@ header {
 }
 
 #hoverIcon2 {
-    animation-delay: 0.2s;
-}
-
-#hoverIcon3 {
     animation-delay: 0.4s;
 }
 
-#hoverIcon4 {
-    animation-delay: 0.6s;
-}
-
-#hoverIcon5 {
+#hoverIcon3 {
     animation-delay: 0.8s;
 }
 
+#hoverIcon4 {
+    animation-delay: 1.2s;
+}
+
+#hoverIcon5 {
+    animation-delay: 1.6s;
+}
+
 #hoverIcon6 {
-    animation-delay: 1s;
+    animation-delay: 2s;
 }
 
 .gradient-background {
-  animation: gradient-animation 2s ease infinite;
+  animation: gradient-animation 5s ease infinite;
 } 
 
 @keyframes rotate {
