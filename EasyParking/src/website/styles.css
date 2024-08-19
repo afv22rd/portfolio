@@ -1,14 +1,16 @@
 :root {
     --bs-body-bg: #fff; /* Light mode background color */
     --bs-link-color: #002147;
-    --bs-secondary-bg-rgb: 0, 33, 71;
     --bs-link-hover-color: #75B2DD;
+    --bs-buttons-bg: #002147;
 }
 
 [data-bs-theme="dark"] {
     --bs-body-bg: #002147; /* Dark mode background color */
     --bs-link-color: #fff;
     --bs-tertiary-bg-rgb: 0, 26, 55;
+    --bs-buttons-bg: #75B2DD;
+    --bs-list-group-action-hover-bg: #75B2DD15;
 }
 
 /* Apply the background color */
@@ -45,7 +47,7 @@ header {
 }
 
 .nav-pills{
-    --bs-nav-pills-link-active-bg: #002147;
+  --bs-nav-pills-link-active-bg: #002147;
 }
 
 [data-bs-theme="dark"] .nav-pills{
@@ -60,8 +62,8 @@ header {
     --bs-btn-bg: #D0A627;
     background-color: var(--bs-btn-bg);
     border-color: var(--bs-btn-bg);
-    --bs-btn-hover-bg: #75B2DD;
-    --bs-btn-hover-border-color: #002147;
+    --bs-btn-hover-bg: var(--bs-buttons-bg);
+    --bs-btn-hover-border-color: var(--bs-buttons-bg);
 }
 
 .icon-square {
@@ -70,26 +72,27 @@ header {
     border-radius: 0.75rem;
   }
 
-.bg-body-secundary {
-    background-color: rgba(var(--bs-secondary-bg-rgb),var(--bs-bg-opacity)) !important;
-}
-
 .bg-body-tertiary {
     background-color: rgba(var(--bs-tertiary-bg-rgb),var(--bs-bg-opacity)) !important;
   }
 
 .gradient-background {
+  background: linear-gradient(100deg, #75b2dd50, #75B2DD80);
+  background-size: 150% 150%;
+}
+
+#features-section .gradient-background {
     background: linear-gradient(100deg, #002147, #75B2DD);
     background-size: 150% 150%;
     transition: transform .2s;
   }
 
-[data-bs-theme="dark"] .gradient-background {
+[data-bs-theme="dark"] #features-section .gradient-background {
     background: linear-gradient(100deg, #49555E, #7D9DB3);
     background-size: 150% 150%;
 }
 
-.gradient-background:hover {
+#features-section .gradient-background:hover {
     transform: scale(1.02);
 }
   
@@ -115,31 +118,31 @@ header {
     --bs-dropdown-link-active-color: #dee2e6;
 }
 
-#hoverIcon1 {
+#features-section #hoverIcon1 {
   animation-delay: 0s;
 }
 
-#hoverIcon2 {
+#features-section #hoverIcon2 {
+    animation-delay: 0.2s;
+}
+
+#features-section #hoverIcon3 {
     animation-delay: 0.4s;
 }
 
-#hoverIcon3 {
+#features-section #hoverIcon4 {
+    animation-delay: 0.6s;
+}
+
+#features-section #hoverIcon5 {
     animation-delay: 0.8s;
 }
 
-#hoverIcon4 {
-    animation-delay: 1.2s;
+#features-section #hoverIcon6 {
+    animation-delay: 1s;
 }
 
-#hoverIcon5 {
-    animation-delay: 1.6s;
-}
-
-#hoverIcon6 {
-    animation-delay: 2s;
-}
-
-.gradient-background {
+#features-section .gradient-background {
   animation: gradient-animation 5s ease infinite;
 } 
 
@@ -245,4 +248,63 @@ body, html {
 .feature.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.list-group-item-check {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+.list-group-item-check:checked + .list-group-item {
+  color: #fff;
+  background-color: var(--bs-buttons-bg);
+  border-color: var(--bs-buttons-bg);
+  box-shadow: 0px 4px 12px rgba(82, 80, 80, 0.404); /* Adjust the shadow as needed */
+}
+
+[data-bs-theme="dark"] .list-group-item-check:checked + .list-group-item {
+  box-shadow: 0px 4px 12px rgba(203, 201, 201, 0.404); /* Adjust the shadow as needed */
+}
+
+.list-group-checkable .list-group-item {
+  --bs-list-group-action-hover-bg: #75B2DD20;
+  cursor: pointer;
+}
+
+input:not(:checked) + label:hover {
+  background-color: var(--bs-list-group-action-hover-bg);
+}
+
+.list-group-item {
+  border: none;
+}
+
+#listHeading {
+  display: inline-block;
+  background-color: #75b2dd30;
+  color: #002147;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  line-height: 16px;
+}
+
+[data-bs-theme="dark"] #listHeading {
+  background-color: #334d6c;
+  color: #fff;
+}
+
+.bg-body-secundary {
+  background-color: rgba(var(--bs-secondary-bg-rgb),var(--bs-bg-opacity)) !important;
+}
+
+#howItWorksImg {
+  transition: opacity 0.3s ease-in-out; /* Adjust duration as needed */
+  opacity: 1;
+}
+
+#howItWorksImg.fade-out {
+  opacity: 0;
 }
