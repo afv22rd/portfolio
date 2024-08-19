@@ -145,6 +145,12 @@ document.addEventListener('DOMContentLoaded', async function() {
   const radios = document.querySelectorAll('input[name="listGroupCheckableRadios"]');
   const radioImage = document.getElementById('howItWorksImg');
 
+  // Preload all images
+  radios.forEach(radio => {
+    const img = new Image();
+    img.src = radio.getAttribute('data-src');
+  });
+
   radios.forEach(radio => {
     radio.addEventListener('change', function() {
       radioImage.classList.add('fade-out');
