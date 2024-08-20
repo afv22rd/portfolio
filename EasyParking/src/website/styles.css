@@ -48,6 +48,12 @@ header {
 
 .form-check-input {
     margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+.form-check-input:checked {
+  background-color: #75b2dd;
+  border-color: #75b2dd;
 }
 
 .nav-pills{
@@ -85,19 +91,19 @@ header {
   background-size: 150% 150%;
 }
 
+[data-bs-theme="dark"].gradient-background {
+  background: linear-gradient(100deg, #49555E, #75B2DD70);
+  background-size: 150% 150%;
+}
+
 #features-section .gradient-background {
     background: linear-gradient(100deg, #002147, #75B2DD);
     background-size: 150% 150%;
-    transition: transform .2s;
   }
 
 [data-bs-theme="dark"] #features-section .gradient-background {
     background: linear-gradient(100deg, #49555E, #7D9DB3);
     background-size: 150% 150%;
-}
-
-#features-section .gradient-background:hover {
-    transform: scale(1.02);
 }
   
 @keyframes gradient-animation {
@@ -246,12 +252,17 @@ body, html {
 .feature {
   opacity: 0;
   transform: translateY(-50px);
+  transition: transform .2s;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .feature.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.feature:hover {
+  transform: scale(1.02);
 }
 
 .list-group-item-check {
@@ -264,6 +275,10 @@ body, html {
   background-color: var(--bs-buttons-bg);
   border-color: var(--bs-buttons-bg);
   box-shadow: 0px 4px 12px rgba(82, 80, 80, 0.404); /* Adjust the shadow as needed */
+}
+
+[data-bs-theme="dark"] .list-group-item-check:checked + .list-group-item {
+  background-color: #667a91;
 }
 
 [data-bs-theme="dark"] .list-group-item-check:checked + .list-group-item {
@@ -305,10 +320,24 @@ input:not(:checked) + label:hover {
 }
 
 #howItWorksImg {
-  transition: opacity 0.3s ease-in-out; /* Adjust duration as needed */
+  transition: opacity 0.2s ease-in-out; /* Adjust duration as needed */
   opacity: 1;
 }
 
 #howItWorksImg.fade-out {
   opacity: 0;
+}
+
+#theme-icon, #theme-icon2, #theme-icon-f {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.spin-out {
+  transform: rotate(360deg);
+  opacity: 0;
+}
+
+.spin-in {
+  transform: rotate(-360deg);
+  opacity: 1;
 }

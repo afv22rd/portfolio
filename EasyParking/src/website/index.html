@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css"> <!--CSS file-->
-    <script src="./myscript.js"></script> <!--Javascript file-->
+    <script src="./homescript.js"></script> <!--Javascript file-->
     <!--<script src="./dbscript.js" type="module"></script>-->
 </head>
 
@@ -23,9 +23,9 @@
         </div>
   
         <ul class="col-12 col-sm-4 justify-content-sm-center nav nav-pills">
-          <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="/" class="nav-link" id="home-link"aria-current="page">Home</a></li>
+          <li class="nav-item"><a href="faq.html" class="nav-link" id="faq-link">FAQs</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link" id="about-link">About</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Other
@@ -38,8 +38,9 @@
         </ul>
   
         <div id="themeSwitch" class="col-12 col-sm-4 pt-2 pt-sm-0 form-check form-switch d-none d-sm-flex align-items-center justify-content-end justify-content-xl-center">
+          <label class="form-check-label me-5" for="flexSwitchCheckDefault"><img src="./images/light-mode-sun.svg" width="20px" id="theme-icon2"></label>
           <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          <label class="form-check-label me-5" for="flexSwitchCheckDefault"><img src="./images/dark-mode-moon.svg" width="20px" id="theme-icon"></label>
+          <label class="form-check-label me-5" for="flexSwitchCheckDefault"><img src="" width="20px" id="theme-icon"></label>
         </div>
       </header>
     </div>
@@ -47,43 +48,43 @@
   <!--Folded navbar-->
   <section>
     <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex d-lg-none">
-      <div class="container-fluid">
+        <div class="container-fluid">
         <a class="navbar-brand" href="/"><img src="./images/weblogo_lightmode.svg" width="150px" id="logo-phone"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">FAQs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Other
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="https://github.com/Obarrie/CSC305Project" target="_blank" rel="noopener noreferrer">GitHub Repo <img src="./images/newtab-light.svg" width="20px" class="newtab-icon"></a></li>
-                <li><a class="dropdown-item" href="https://github.com/Obarrie/CSC305Project/wiki" target="_blank" rel="noopener noreferrer">Wiki <img src="./images/newtab-light.svg" width="20px" class="newtab-icon"></a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li>
-                  <div class="col-sm-4 px-0 form-check form-switch align-items-center order-2" id="themeSwitch">
-                    <input class="form-check-input ms-3" type="checkbox" role="switch" id="flexSwitchCheckDefault-f">
-                    <label class="form-check-label" for="flexSwitchCheckDefault"><img src="./images/dark-mode-moon.svg" width="20px" id="theme-icon-f"></label>
-                  </div>
-                </li>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/" id="home-link-folded">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="faq.html" id="faq-link-folded">FAQs</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="about.html" id="about-link-folded">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Other
+                  </a>
+                  <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="https://github.com/Obarrie/CSC305Project" target="_blank" rel="noopener noreferrer">GitHub Repo <img src="./images/newtab-light.svg" width="20px" class="newtab-icon"></a></li>
+                  <li><a class="dropdown-item" href="https://github.com/Obarrie/CSC305Project/wiki" target="_blank" rel="noopener noreferrer">Wiki <img src="./images/newtab-light.svg" width="20px" class="newtab-icon"></a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                      <div class="col-sm-4 px-0 form-check form-switch align-items-center order-2" id="themeSwitch">
+                      <input class="form-check-input ms-3" type="checkbox" role="switch" id="flexSwitchCheckDefault-f">
+                      <label class="form-check-label" for="flexSwitchCheckDefault"><img src="./images/dark-mode-moon.svg" width="20px" id="theme-icon-f"></label>
+                      </div>
+                  </li>
+                  </ul>
+              </li>
               </ul>
-            </li>
-          </ul>
+          </div>
         </div>
-      </div>
     </nav>
-  </section>
+    </section>
   <!--Main hero-->
   <section class="main-hero position-relative">
     <!-- Embedded SVG background -->
@@ -113,7 +114,7 @@
     <div class="container col-xxl-8 px-4 pt-5 position-relative">
       <div class="row flex-lg-row-reverse align-items-center g-5 pt-5">
         <div class="col-10 col-sm-8 col-lg-5 mt-4">
-          <img src="./images/twoScreens.svg" class="d-block mx-lg-0 img-fluid mt-lg-5 pt-lg-5" alt="EasyParking App Layout" id="homeLayout" loading="lazy">
+          <img src="./images/twoScreens.png" class="d-block mx-lg-0 img-fluid mt-lg-5 pt-lg-5" alt="EasyParking App Layout" id="homeLayout" loading="lazy">
         </div>
         <div class="col-lg-7 order-first order-lg-last mt-0 mt-sm-4 ps-xl-5 ps-xxl-4">
           <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">A solution to URI's parking problem. Made for students, by students.</h1>
@@ -147,11 +148,11 @@
   </section>
   
   <!--How it works-->
-  <section>
+  <section id="howItWorks-section">
     <div class="container col-12 px-4 pt-5 position-relative">
       <h2 class="border-bottom pb-2">How The App Works</h2>
       <div class="d-flex flex-column flex-lg-row p-4 gap-4 gap-xl-0 py-md-5 align-items-center">
-        <div class="col-12 col-md-8 col-lg-6">
+        <div class="col-12 col-md-8 col-lg-6 image-container">
           <img src="./images/homeScreen.png" alt="EasyParking App Layout" id="howItWorksImg" loading="lazy" width="400" class="d-block mx-auto mx-lg-0 img-fluid">
         </div>
         <div class="order-first order-lg-last col-12 col-lg-6">
@@ -276,9 +277,9 @@
       </div>
     </div>
   </section>
-  
+
   <!--Footer-->
-  <section>
+  <section id="footer">
     <div class="container">
       <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
         <div class="col mb-3 px-0 d-flex flex-column align-items-start order-1 order-sm-0">
@@ -295,35 +296,21 @@
         </div>
 
         <div class="col mb-3">
-          <h5>Section</h5>
+          <h5>Product</h5>
           <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Sign Up</a></li>
+          <li class="nav-item mb-2"><a href="#howItWorks-section" class="nav-link p-0 text-body-secondary">How The App Works</a></li>
+          <li class="nav-item mb-2"><a href="#features-section" class="nav-link p-0 text-body-secondary">Features</a></li>
+          <li class="nav-item mb-2"><a href="faq.html" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="about.html" class="nav-link p-0 text-body-secondary">About</a></li>
           </ul>
         </div>
     
         <div class="col mb-3">
-          <h5>Section</h5>
+          <h5>GitHub</h5>
           <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-          </ul>
-        </div>
-    
-        <div class="col mb-3">
-          <h5>Section</h5>
-          <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+          <li class="nav-item mb-2"><a href="https://github.com/Obarrie/CSC305Project" target="_blank" rel="noopener noreferrer">Repository <img src="./images/newtab-light.svg" width="20px" class="newtab-icon"></a></li>
+          <li class="nav-item mb-2"><a href="https://github.com/Obarrie/CSC305Project/wiki" target="_blank" rel="noopener noreferrer">Wiki <img src="./images/newtab-light.svg" width="20px" class="newtab-icon"></a></li>
           </ul>
         </div>
       </footer>
