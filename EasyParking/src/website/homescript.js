@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', async function() {
   const themeIconF = document.getElementById('theme-icon-f');
   const newtabIcons = document.querySelectorAll('.newtab-icon');
   const radioIcon = document.querySelectorAll('.howItWorksIcon');
+  const footerBg = document.getElementById('footer-bg');
 
   const colorsLight = ["#bad9ee", "#9ec9e7", "#75b2dd"];
   const colorsDark = ["#667a91", "#334d6c", "#002147"];
@@ -83,6 +84,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (theme === 'dark') {
       headerLogo.src = './images/weblogo_darkmode.svg';
       logophone.src = './images/weblogo_darkmode.svg';
+      footerBg.src = './images/blobs/waves-dark.png';
       mainHero.classList.add('dark');
   
       // Update all newtab icons
@@ -105,6 +107,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     } else {
       headerLogo.src = './images/weblogo_lightmode.svg';
       logophone.src = './images/weblogo_lightmode.svg';
+      footerBg.src = './images/blobs/waves.png';
       mainHero.classList.remove('dark');
   
       // Update all newtab icons
