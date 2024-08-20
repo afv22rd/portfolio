@@ -87,63 +87,48 @@ document.addEventListener('DOMContentLoaded', async function() {
   themeSwitchF.addEventListener('change', updateTheme);
   updateLogos(theme);
 
-  // Feature animations
-  const features = document.querySelectorAll('.feature');
-  const featureHeader = document.getElementById('feature-heading');
+// Feature animations
+const featuresSection = document.getElementById('features-section');
+const features = document.querySelectorAll('.feature');
 
-  function isDesktop() {
-    return window.innerWidth >= 1024 && window.innerHeight >= 768;
-  }
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.1
+};
 
-  function getRootMargin() {
-    if (isDesktop()) {
-      // For desktop, we want all features to animate when the section comes into view
-      return '0px 0px -275px 0px';
-    } else {
-      // For mobile, we want features to animate as they come into view
-      return '0px 0px -10% 0px';
-    }
-  }
+let animated = false;
 
-  function createObserver() {
-    const observerOptions = {
-      root: isDesktop() ? featureHeader : null,
-      rootMargin: getRootMargin(),
-      threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const feature = entry.target;
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !animated) {
+      animated = true;
+      features.forEach((feature, index) => {
+        setTimeout(() => {
           feature.classList.add('visible');
-          if (isDesktop()) {
-            feature.style.transitionDelay = `${feature.style.getPropertyValue('--order') * 200}ms`;
-          } else {
-            feature.style.transitionDelay = '0ms';
-          }
-          observer.unobserve(feature);
-        }
+        }, index * 200); // 200ms delay between each feature
       });
-    }, observerOptions);
-
-    features.forEach(feature => {
-      observer.observe(feature);
-    });
-
-    return observer;
-  }
-
-  let observer = createObserver();
-
-  // Recreate the observer when the window is resized
-  window.addEventListener('resize', () => {
-    observer.disconnect();
-    observer = createObserver();
+      observer.unobserve(featuresSection);
+    }
   });
+}, observerOptions);
+
+// Ensure features are hidden initially
+features.forEach(feature => {
+  feature.classList.remove('visible');
+});
+
+// Start observing
+observer.observe(featuresSection);
 
   const radios = document.querySelectorAll('input[name="listGroupCheckableRadios"]');
   const radioImage = document.getElementById('howItWorksImg');
+
+  // Preload all images
+  radios.forEach(radio => {
+    const img = new Image();
+    img.src = radio.getAttribute('data-src');
+  });
 
   radios.forEach(radio => {
     radio.addEventListener('change', function() {
