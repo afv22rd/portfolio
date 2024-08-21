@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         setTimeout(() => {
           radioImage.src = newSrc;
           radioImage.classList.remove('fade-out');
-        }, 300);
+        }, 200);
       };
     });
   });

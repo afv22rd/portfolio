@@ -204,6 +204,8 @@ header {
 
 body, html {
   overflow-x: hidden;
+  margin: 0;
+  height: 100%;
 }
 
 @keyframes spinner {
@@ -340,4 +342,9 @@ input:not(:checked) + label:hover {
 .spin-in {
   transform: rotate(-360deg);
   opacity: 1;
+}
+
+#footer a {
+  color: var(--bs-secondary-color) !important;
+  text-decoration: none;
 }
