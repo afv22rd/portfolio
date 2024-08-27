@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+	<title>7-circle-svg</title>
+	<defs>
+		<image  width="16" height="16" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAAXNSR0IB2cksfwAAAD9QTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsyWCLwAAABV0Uk5TAKH/rsuKRfkZx5dC+x/Anzj9Jbyn30GV3wAAAD9JREFUeJxjZEADjOQKMIIoxr+oKlgYf6MIsDEy/kAR4GT8hmIoNyPjZxQBPsaPKNYKMDK+QxEQZnxDqdORAAA4LAgROrjPswAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Layer" href="#img1" x="0" y="0"/>
+</svg>

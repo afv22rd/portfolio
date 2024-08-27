@@ -348,3 +348,18 @@ input:not(:checked) + label:hover {
   color: var(--bs-secondary-color) !important;
   text-decoration: none;
 }
+
+#map {
+  height: 600px;
+  width: 100%;
+}
+
+.text-bg-primary {
+  color: #fff !important;
+  background-color: var(--bs-buttons-bg) !important;
+}
+
+.flagg-badge {
+  color: #D0A627 !important;
+  background-color: #D0A627 !important;
+}
