@@ -213,18 +213,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 
   document.getElementById("listGroupCheckableRadios1").checked = true;
 
-  try {
-    // Warm-up the Cloud Function with a GET request
-    const response = await fetch('https://us-central1-easyparking-d43a9.cloudfunctions.net/storeEmail', {
-        method: 'GET',
-    });
-
-    // Optional: handle the warm-up response if needed
-    console.log('Cloud Function warmed up:', response.status);
-  } catch (error) {
-      console.error('Error warming up Cloud Function:', error);
-  }
-
   document.getElementById('emailForm').addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent form submission
   
@@ -334,19 +322,39 @@ document.addEventListener('DOMContentLoaded', async function() {
 
   // Google Maps API
 
-  (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
-    key: "AIzaSyA1H9zgzF8-0ISLqNcFO6VgMQ77MbREfpI",
-    v: "weekly",
-    // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
-    // Add other bootstrap parameters as needed, using camel case.
-  });
+    // Fetch the API key from the Firebase Cloud Function
+    const response = await fetch('https://us-central1-easyparking-d43a9.cloudfunctions.net/getGoogleMapsApiKey');
+    const data = await response.json();
+    const apiKey = data.key;
+
+    // Initialize the Google Maps script with the fetched API key
+    (g => {
+        var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window;
+        b = b[c] || (b[c] = {});
+        var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+            u = () => h || (h = new Promise(async (f, n) => {
+                await (a = m.createElement("script"));
+                e.set("libraries", [...r] + "");
+                for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                e.set("callback", c + ".maps." + q);
+                a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+                d[q] = f;
+                a.onerror = () => h = n(Error(p + " could not load."));
+                a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                m.head.append(a)
+            }));
+        d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
+    })({
+        key: apiKey, // Use the API key fetched from the Cloud Function
+        v: "weekly",
+        // Add other bootstrap parameters as needed, using camel case.
+    });
 
   let map;
 
   async function initMap() {
     const { Map } = await google.maps.importLibrary("maps");
 
-    const currentTheme = document.documentElement.getAttribute('data-bs-theme');
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
     const { PinElement } = await google.maps.importLibrary("marker");
 
@@ -398,9 +406,21 @@ document.addEventListener('DOMContentLoaded', async function() {
       mapTypeControl: false,
     });
 
-    map.data.loadGeoJson(
-      "https://storage.googleapis.com/parking-lots-json/Flagg%20Rd/map.geojson"
-    );
+    const geoJsonUrl = "https://us-central1-easyparking-d43a9.cloudfunctions.net/getGeoJSON";
+
+    fetch(geoJsonUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok " + response.statusText);
+        }
+        return response.json();
+      })
+      .then(geoJsonData => {
+        map.data.addGeoJson(geoJsonData);
+      })
+      .catch(error => {
+        console.error("Error fetching GeoJSON:", error);
+      });
 
     map.data.setStyle({
       fillColor: '#D0A627',
