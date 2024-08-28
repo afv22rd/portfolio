@@ -399,7 +399,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
 
     map.data.loadGeoJson(
-      "https://storage.googleapis.com/parking-lots-json/Flagg%20Rd/map.geojson"
+      "map.geojson"
     );
 
     map.data.setStyle({
