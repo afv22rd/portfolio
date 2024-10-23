@@ -1,0 +1,83 @@
+body.modal-open {
+  padding-right: calc(100vw - 100%);
+}
+
+
+.product-device {
+  position: absolute;
+  right: 10%;
+  bottom: -30%;
+  width: 300px;
+  height: 540px;
+  background-color: #333;
+  border-radius: 21px;
+  transform: rotate(30deg);
+}
+
+.product-device-2 {
+  top: -25%;
+  right: auto;
+  bottom: 0;
+  left: 5%;
+  background-color: #e5e5e5;
+}
+
+.product-device::before {
+  position: absolute;
+  top: 10%;
+  right: 10px;
+  bottom: 10%;
+  left: 10px;
+  content: "";
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 5px;
+}
+
+.discussion {
+  width: 75%;
+  margin: auto;
+}
+
+.accordion {
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0rem rgba(0, 0, 0, 0);
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+}
+
+.accordion-button:not(.collapsed) {
+  --bs-accordion-active-bg: #002147;
+  --bs-accordion-active-color: #fff;
+}
+
+[data-bs-theme="dark"] .accordion-button:not(.collapsed) {
+  --bs-accordion-active-bg: #334d6c;
+  --bs-accordion-active-color: #fff;
+}
+
+.accordion-button:focus {
+  z-index: 3;
+  outline: 0;
+  box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+}
+
+#faq-hero a {
+  color: var(--bs-link-color);
+  text-decoration-color: var(--bs-link-color);
+}
+
+#questionEmailMessage {
+  margin-top: 5px;
+  height: 25px; /* Fixed height */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.toast {
+  --bs-toast-bg: rgba(var(--bs-body-bg-rgb), 0.95)
+}
+
+.accordion-body {
+  background-color: #75b2dd30;
+}
+
+[data-bs-theme="dark"] .accordion-body {
+  background-color: #667a9130;
+}

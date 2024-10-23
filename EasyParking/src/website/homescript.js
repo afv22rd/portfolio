@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         return;
     }
   
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const regex = /^[^\s@]+@uri\.edu$/;
     if (!regex.test(email)) {
         emailInputGroup.classList.add('is-invalid');
         emailMessageDiv.textContent = 'Please enter a valid email address.';
