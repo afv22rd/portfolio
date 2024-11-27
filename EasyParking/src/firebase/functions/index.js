@@ -1,23 +1,24 @@
-const {onRequest} = require("firebase-functions/v2/https");
-const cors = require('cors')({ origin: true });
+const cors = require('cors')({ origin: 'https://easy-parking.app/' });
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const sgMail = require('@sendgrid/mail');
 const fs = require("fs");
 const path = require("path");
-
-admin.initializeApp();
+admin.initializeApp(); // Initialize Firebase 
 
 const db = admin.firestore();
 
-// Replace with your SendGrid API Key
+// SendGrid API Key
 const SENDGRID_API_KEY = functions.config().sendgrid.key;
 const TEMPLATE_ID = functions.config().sendgrid.template;  
 sgMail.setApiKey(SENDGRID_API_KEY);
 
+// Admin email
 const ADMIN_EMAIL = functions.config().admin.email;
 
+// Firestore trigger to send a thank you email
 exports.sendThankYouEmail = functions.firestore
+    // Trigger on document creation in the emailSubscriptions collection
     .document('emailSubscriptions/{docId}')
     .onCreate((snap) => {
         const email = snap.data().email;
@@ -42,6 +43,7 @@ exports.sendThankYouEmail = functions.firestore
             });
     });
 
+// Store email in Firestore and check if email already exists
 exports.storeEmail = functions.https.onRequest((req, res) => {
     cors(req, res, async () => {
         if (req.method !== 'POST') {
@@ -75,6 +77,7 @@ exports.storeEmail = functions.https.onRequest((req, res) => {
 
             await emailCollection.doc(newId.toString()).set({
                 id: newId,
+                uid: uid,
                 email: email,
                 date: admin.firestore.Timestamp.now(),
             });
@@ -96,10 +99,68 @@ exports.getGeoJSON = functions.https.onRequest((req, res) => {
     });
   });
   
-// Define the Firebase Cloud Function
+// Define the Cloud Function to get Google Maps API key
 exports.getGoogleMapsApiKey = functions.https.onRequest((req, res) => {
     cors(req, res, () => {
         const apiKey = functions.config().googlemaps.key;
         res.json({ key: apiKey });
+    });
+});
+
+// Store question in Firestore
+exports.storeQuestion = functions.https.onRequest((req, res) => {
+    cors(req, res, async () => {
+        if (req.method !== 'POST'){
+            return res.status(405).send('Method Not Allowed');
+        }
+
+        const { email, question, issue } = req.body;
+
+        if (!email || !email.includes('@') || !email.includes('.')) {
+            return res.status(400).send('Invalid email address.');
+        }
+
+        if (!question) {
+            return res.status(400).send('Question is required.');
+        }
+
+        const questionCollection = db.collection('discussionQuestions');
+
+        try {
+            await db.runTransaction(async (transaction) => {
+                const newDoc = questionCollection.doc();
+                transaction.set(newDoc, {
+                    id: newDoc.id,
+                    email: email,
+                    question: question,
+                    issue: issue,
+                    date: admin.firestore.Timestamp.now(),
+                });
+            });
+            
+            return res.status(200).send('Question stored successfully.');
+            } catch (error) {
+                console.error('Error storing question: ', error);
+                return res.status(500).send('Internal Server Error');
+            }
+        });
+    });
+
+// Retrieve questions from Firestore
+exports.getQuestions = functions.https.onRequest(async (req, res) => {
+    cors(req, res, async () => {
+        if (req.method !== 'GET') {
+            return res.status(405).send('Method Not Allowed');
+        }
+
+        try {
+            const questionCollection = db.collection('discussionQuestions').orderBy('date', 'desc');
+            const snapshot = await questionCollection.get();
+            const questions = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            res.status(200).json(questions);
+        } catch (error) {
+            console.error('Error retrieving questions: ', error);
+            res.status(500).send('Internal Server Error');
+        }
     });
 });

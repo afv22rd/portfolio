@@ -1,45 +1,41 @@
 document.addEventListener('DOMContentLoaded', async function() {
+    // Theme switcher
     const headerLogo = document.getElementById('logo-h');
     const logophone = document.getElementById('logo-phone');
     const themeSwitch = document.getElementById('flexSwitchCheckDefault');
     const themeSwitchF = document.getElementById('flexSwitchCheckDefault-f');
+    const mainHero = document.querySelector('.main-hero');
     const themeIcon = document.getElementById('theme-icon');
     const themeIcon2 = document.getElementById('theme-icon2')
     const themeIconF = document.getElementById('theme-icon-f');
     const newtabIcons = document.querySelectorAll('.newtab-icon');
     const radioIcon = document.querySelectorAll('.howItWorksIcon');
     const footerBg = document.getElementById('footer-bg');
-    const questionToast = document.getElementById('questionToast');
-
+  
+    const colorsLight = ["#bad9ee", "#9ec9e7", "#75b2dd"];
+    const colorsDark = ["#667a91", "#334d6c", "#002147"];
+    const bottomClasses = ["bottom-1", "bottom-2", "bottom-3"];
+    const topClasses = ["top-1", "top-2", "top-3"];
+  
     // Check if the current page is the FAQ page
     const currentPage = window.location.pathname;
     const homeLink = document.getElementById('home-link');
     const faqLink = document.getElementById('faq-link');
     const aboutLink = document.getElementById('about-link');
-
+  
     // folded nav-bar
     const homeLinkF = document.getElementById('home-link-folded');
     const faqLinkF = document.getElementById('faq-link-folded');
     const aboutLinkF = document.getElementById('about-link-folded');
-
-    if (currentPage.includes('faq')) {
-      homeLink.classList.remove('active');
-      aboutLink.classList.remove('active');
-      faqLink.classList.add('active');
-
-      homeLinkF.classList.remove('active');
-      aboutLinkF.classList.remove('active');
-      faqLinkF.classList.add('active');
-      
-    } else if (currentPage.includes('about')) {
-      homeLink.classList.remove('active');
+  
+    if (currentPage.includes('index') || currentPage === '/') {
       faqLink.classList.remove('active');
-      aboutLink.classList.add('active');
-
-      homeLinkF.classList.remove('active');
+      aboutLink.classList.remove('active');
+      homeLink.classList.add('active');
+      
       faqLinkF.classList.remove('active');
-      aboutLinkF.classList.add('active');
-     
+      aboutLinkF.classList.remove('active');
+      homeLinkF.classList.add('active');
     }
     
     // Check local storage for saved theme
@@ -90,25 +86,40 @@ document.addEventListener('DOMContentLoaded', async function() {
         headerLogo.src = './images/weblogo_darkmode.svg';
         logophone.src = './images/weblogo_darkmode.svg';
         footerBg.src = './images/blobs/waves-dark.png';
+        mainHero.classList.add('dark');
     
         // Update all newtab icons
         newtabIcons.forEach(icon => {
           icon.src = './images/newtab.svg';
         });
     
+        bottomClasses.forEach((className, index) => {
+          document.querySelector(`.${className}`).setAttribute("fill", colorsDark[index]);
+        });
+        topClasses.forEach((className, index) => {
+          document.querySelector(`.${className}`).setAttribute("fill", colorsDark[index]);
+        });
+    
         // Update all radio icons to dark
         radioIcon.forEach(icon => {
           icon.src = icon.src.replace('.svg', '-dark.svg');
-        });
-    
+        });  
       } else {
         headerLogo.src = './images/weblogo_lightmode.svg';
         logophone.src = './images/weblogo_lightmode.svg';
         footerBg.src = './images/blobs/waves.png';
+        mainHero.classList.remove('dark');
     
         // Update all newtab icons
         newtabIcons.forEach(icon => {
           icon.src = './images/newtab-light.svg';
+        });
+    
+        bottomClasses.forEach((className, index) => {
+          document.querySelector(`.${className}`).setAttribute("fill", colorsLight[index]);
+        });
+        topClasses.forEach((className, index) => {
+          document.querySelector(`.${className}`).setAttribute("fill", colorsLight[index]);
         });
     
         // Update all radio icons to light
@@ -129,62 +140,4 @@ document.addEventListener('DOMContentLoaded', async function() {
     themeSwitch.addEventListener('change', updateTheme);
     themeSwitchF.addEventListener('change', updateTheme);
     updateLogos(theme);
-
-  document.getElementById('questionForm').addEventListener('submit', async (event) => {
-    event.preventDefault(); // Prevent form submission
-  
-    const emailInput = document.querySelector('input[type="email"]');
-    const emailInputGroup = document.getElementById('questionEmail');
-    const emailMessageDiv = document.getElementById('questionEmailMessage');
-    const questionInput = document.getElementById('question')
-    const issueDescription = document.getElementById('issue-description');
-    const email = emailInput.value;
-    const question = questionInput.value;
-    const issue = issueDescription.value;
-
-    const regex = /^[^\s@]+@uri\.edu$/;
-    if (!regex.test(email)) {
-        emailInputGroup.classList.add('is-invalid');
-        emailMessageDiv.textContent = 'Please enter a valid email address.';
-        emailMessageDiv.classList.add('invalid-feedback');
-  
-        setTimeout(() => {
-            emailInputGroup.classList.remove('is-invalid');
-            emailMessageDiv.textContent = '';
-            emailMessageDiv.classList.remove('invalid-feedback');
-        }, 4000);
-        return;
-    }
-
-    try {
-      const response = await fetch('https://us-central1-easyparking-d43a9.cloudfunctions.net/storeQuestion', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, question, issue }),
-      });
-
-      if (response.ok) {
-        // Close the modal using Bootstrap's modal hide method
-        const modalBootstrap = bootstrap.Modal.getInstance(exampleModal); // Get the modal instance
-        modalBootstrap.hide();
-        questionInput.value = ''; // Clear the question input
-        issueDescription.value = ''; // Clear the issue description input
-
-        // Delay to allow modal to close before showing the toast
-        setTimeout(() => {
-          const toastBootstrap = bootstrap.Toast.getOrCreateInstance(questionToast);
-          toastBootstrap.show();
-        }, 500); // Adjust delay as needed 
-      } else {
-        const errorMessage = await response.text();
-        alert(`Error: ${errorMessage}`);
-      }
-    } catch (error) {
-      console.error('Error submitting question:', error);
-      alert('An error occurred while submitting your question. Please try again later.');
-    }
-  });
 });
-
